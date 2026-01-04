@@ -1,24 +1,112 @@
-# Logs
-logs
+# -------------------------------------------------------------------
+#  Core
+# -------------------------------------------------------------------
+node_modules/
+apps/*/node_modules/
+.pnpm-store/
+.pnpm/
+.npm/
+dist/
+build/
+tmp/
+temp/
+.DS_Store
 *.log
+*.cache
+
+# Ignore lockfiles que NÃO são usados com pnpm
+package-lock.json
+yarn.lock
+
+# pnpm lock file que deve ser versionado
+# (não ignore — mas mantenho aqui como documentação)
+# pnpm-lock.yaml
+
+# -------------------------------------------------------------------
+#  Monorepo / Turborepo / pnpm workspaces
+# -------------------------------------------------------------------
+.turbo/
+.nx/
+.pnpm-debug.log
+
+# -------------------------------------------------------------------
+#  Prisma
+# -------------------------------------------------------------------
+# Arquivos gerados automaticamente
+apps/backend/prisma/generated/
+apps/backend/prisma/migrations/*/migration.sql-journal
+apps/backend/prisma/migrations/*/shadow.db
+
+# NÃO ignorar migrations/*.sql
+# porque elas fazem parte do versionamento
+
+# -------------------------------------------------------------------
+#  NestJS / Backend
+# -------------------------------------------------------------------
+apps/backend/dist/
+apps/backend/.nest/
+apps/backend/.env*
+apps/backend/coverage/
+
+# -------------------------------------------------------------------
+#  React + Vite (frontend)
+# -------------------------------------------------------------------
+apps/frontend/dist/
+apps/frontend/.env*
+apps/frontend/.vite/
+apps/frontend/.cache/
+apps/frontend/coverage/
+
+# -------------------------------------------------------------------
+#  Environment files
+# -------------------------------------------------------------------
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+*.env
+
+# (você disse que prefere .env sem variáveis vazias — mas mesmo assim, env NÃO vai pro git)
+
+# -------------------------------------------------------------------
+#  Editor / IDE
+# -------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# -------------------------------------------------------------------
+#  OS files
+# -------------------------------------------------------------------
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# -------------------------------------------------------------------
+#  Docker
+# -------------------------------------------------------------------
+docker-data/
+docker-volume/
+*.pid
+*.sock
+
+# -------------------------------------------------------------------
+#  Jest / Testing
+# -------------------------------------------------------------------
+coverage/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+
+# -------------------------------------------------------------------
+#  Logs
+# -------------------------------------------------------------------
+*.log
+logs/
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
